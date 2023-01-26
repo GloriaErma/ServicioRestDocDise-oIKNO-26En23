@@ -1,0 +1,28 @@
+conda install -C conda-forge tabula-py
+##Instalar Tabula para obtener pdf
+import pandas as pd
+
+from tabula import read_pdf
+data = read_pdf('C:\\Users\\polo_\\Desktop\\Taller\\cantones.pdf',pages='1')
+
+datos=pd.DataFrame(data[0]);
+
+##Tratamiento
+
+col_names=("provincia","canton","disponibilidad_hospitalizacion","disponibilidad_uci","disponibilidad_hospitalizacion_covid","dispo")
+datos.columns=col_names
+
+##Tratamiento fechas
+
+import pandas as pd
+dataset['fecha_creacion'] = pd.to_datetime(dataset['fecha_creacion'])
+dataset['Año'] = dataset['fecha_creacion'].dt.year
+dataset['Día'] = dataset['fecha_creacion'].dt.day
+dataset['Mes'] = dataset['fecha_creacion'].dt.month
+
+import matplotlib.pyplot as plt
+dataset.plot(kind='bar',x='Dia',y='disponibilidad_hospitalizacion',color='Día')
+plt.show()
+
+
+
